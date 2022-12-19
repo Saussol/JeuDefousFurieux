@@ -8,9 +8,12 @@ using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
+using TMPro;
 
 public class TestRelay : MonoBehaviour
 {
+    public TMP_InputField inputField;
+
     private async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -45,12 +48,12 @@ public class TestRelay : MonoBehaviour
 
     }
 
-    public async void JoinRelay(string joinCode)
+    public async void JoinRelay(/*string joinCode*/)
     {
         try
         {
-            Debug.Log("Joining Relay with " + joinCode);
-            JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
+            Debug.Log("Joining Relay with " + inputField.text);
+            JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(inputField.text);
 
             RelayServerData relayServerData = new RelayServerData(joinAllocation, "dtls");
 
