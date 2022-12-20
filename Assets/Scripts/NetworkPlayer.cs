@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using Cinemachine;
 
 public class NetworkPlayer : NetworkBehaviour
 {
     [SerializeField] MeshRenderer meshRenderer;
     Vector3[] spawnPos = {new Vector3(2, 0, 0), new Vector3(-2, 0, 0)};
     public List<Color> spawnColor = new List<Color>();
+    public CinemachineFreeLook cinemachineFree;
 
     public override void OnNetworkSpawn()
     {
@@ -18,7 +20,9 @@ public class NetworkPlayer : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!IsOwner) cinemachineFree.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
