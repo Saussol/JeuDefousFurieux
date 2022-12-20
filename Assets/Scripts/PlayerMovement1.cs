@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
+using Cinemachine;
 
-public class PlayerMovement1 : MonoBehaviour
+public class PlayerMovement1 : NetworkBehaviour
 {
 
     [Header("Movement")]
@@ -32,9 +34,19 @@ public class PlayerMovement1 : MonoBehaviour
 
     Rigidbody rb;
 
+    [Header("Camera")]
+    public CinemachineFreeLook cinemachineFree;
+
+    Vector3[] spawnPos = { new Vector3(2, 1.5f, 0), new Vector3(-2, 1.5f, 0) };
+
+    public override void OnNetworkSpawn()
+    {
+        transform.position = spawnPos[(int)OwnerClientId];
+    }
 
     private void Start()
     {
+        if (!IsOwner) cinemachineFree.gameObject.SetActive(false);
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         ResetJump();
@@ -42,6 +54,8 @@ public class PlayerMovement1 : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner) return;
+
         //ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         MyInput();

@@ -985,10 +985,10 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1374928604}
-    PlayerPrefab: {fileID: 1021941456611614044, guid: ddd2a266fb85c874bae4562ecc606f59, type: 3}
+    PlayerPrefab: {fileID: 892881174849760480, guid: e9b8634cd22225140ab97273178897cc, type: 3}
     NetworkPrefabs:
     - Override: 0
-      Prefab: {fileID: 1021941456611614044, guid: ddd2a266fb85c874bae4562ecc606f59, type: 3}
+      Prefab: {fileID: 892881174849760480, guid: e9b8634cd22225140ab97273178897cc, type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
@@ -1917,7 +1917,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 50
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1942,8 +1942,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866511836}
-  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 20, z: -20}
+  m_LocalRotation: {x: 0.24931224, y: 0.63125455, z: -0.22513203, w: 0.6990542}
+  m_LocalPosition: {x: -9.672813, y: 9.378599, z: -0.9885231}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1996,7 +1996,7 @@ GameObject:
   - component: {fileID: 2111386799}
   - component: {fileID: 2111386798}
   - component: {fileID: 2111386797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
