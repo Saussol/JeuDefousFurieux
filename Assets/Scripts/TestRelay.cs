@@ -40,6 +40,8 @@ public class TestRelay : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
             NetworkManager.Singleton.StartHost();
+
+            FindObjectOfType<SimpleSpawn>().SpawnGift();
         } 
         catch (RelayServiceException e)
         {
