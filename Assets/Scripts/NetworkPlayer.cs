@@ -5,6 +5,16 @@ using UnityEngine;
 
 public class NetworkPlayer : NetworkBehaviour
 {
+    [SerializeField] MeshRenderer meshRenderer;
+    Vector3[] spawnPos = {new Vector3(2, 0, 0), new Vector3(-2, 0, 0)};
+    public List<Color> spawnColor = new List<Color>();
+
+    public override void OnNetworkSpawn()
+    {
+        transform.position = spawnPos[(int)OwnerClientId];
+        meshRenderer.material.color = spawnColor[(int)OwnerClientId];
+    }
+
     // Start is called before the first frame update
     void Start()
     {

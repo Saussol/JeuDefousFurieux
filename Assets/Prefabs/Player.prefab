@@ -89,6 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca59cf13b05e2b4c8952639919471d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 1021941458021412976}
+  spawnColor:
+  - {r: 0.3254717, g: 0.75443447, b: 1, a: 0}
+  - {r: 1, g: 0.25, b: 0.25, a: 0}
 --- !u!1 &1021941458021412981
 GameObject:
   m_ObjectHideFlags: 0
