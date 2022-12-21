@@ -12,8 +12,26 @@ public class GiftUse : NetworkBehaviour
     public NetworkVariable<int> points = new NetworkVariable<int>(
         0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
+    public BoxSO gift;
+
+    private void OnValidate()
+    {
+        if (gift != null)
+        {
+            transform.localScale = gift.boxScale;
+            points.Value = gift.points;
+        }
+    }
+
     public void Start()
     {
+        if(gift != null)
+        {
+            transform.localScale = gift.boxScale;
+            GameManager.Instance.giftsInGame.Add(gameObject);
+            points.Value = gift.points;
+        }
+
         textOnGift.text = points.Value.ToString();
     }
 
@@ -22,7 +40,14 @@ public class GiftUse : NetworkBehaviour
         if (other.CompareTag("Player"))
         {
             other.transform.parent.GetComponent<PlayerScore>().UpdateScore(points.Value);
-            DestroyObjectServerRPC();
+            if(gift != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                DestroyObjectServerRPC();
+            }
         }
     }
 
