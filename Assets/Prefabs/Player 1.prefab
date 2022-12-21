@@ -190,7 +190,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892881174657490633}
-  m_LocalRotation: {x: 0.29581007, y: 0.5456785, z: -0.21400248, w: 0.75427735}
+  m_LocalRotation: {x: 0.2958101, y: 0.54567844, z: -0.21400242, w: 0.7542774}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -644,7 +644,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892881175751049697}
-  m_LocalRotation: {x: 0.33220148, y: 0.5346061, z: -0.2403296, w: 0.7389724}
+  m_LocalRotation: {x: 0.3322015, y: 0.53460616, z: -0.2403296, w: 0.7389724}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1290,7 +1290,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892881176346270417}
-  m_LocalRotation: {x: 0.29749534, y: 0.54519874, z: -0.21522158, w: 0.7536143}
+  m_LocalRotation: {x: 0.29749534, y: 0.54519874, z: -0.2152216, w: 0.75361437}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1731,6 +1731,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: LaunchGame, Assembly-CSharp
         m_MethodName: LaunchParty
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4170266660858519514}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
