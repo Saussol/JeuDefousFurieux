@@ -252,6 +252,8 @@ GameObject:
   - component: {fileID: 4857565011137089293}
   - component: {fileID: 4141589244422410201}
   - component: {fileID: 8095915137878711061}
+  - component: {fileID: 5153198522474447714}
+  - component: {fileID: 3685678383656940411}
   m_Layer: 0
   m_Name: Present_1
   m_TagString: Untagged
@@ -410,3 +412,29 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!65 &5153198522474447714
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396176663170021909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3118345, y: 1.5544832, z: 1.3123958}
+  m_Center: {x: -0.00012281537, y: 0.3703759, z: -0.0000032186508}
+--- !u!65 &3685678383656940411
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396176663170021909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.65591717, y: 0.77724165, z: 0.6561979}
+  m_Center: {x: -0.00012281537, y: 0.3703759, z: -0.0000032186508}
