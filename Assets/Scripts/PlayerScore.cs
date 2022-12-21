@@ -36,8 +36,16 @@ public class PlayerScore : NetworkBehaviour
         score.Value += scoreToAdd;
         scoreText.text = "(" + score.Value.ToString() + ")";
 
+
+
         StartCoroutine(ScorePlusAnim());
         Debug.Log("add score");
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void UpdateScoreOnManagerServerRPC(int newScore)
+    {
+        GameManager.Instance.playerScores[OwnerClientId] = newScore;
     }
 
     IEnumerator ScorePlusAnim()
