@@ -14,6 +14,8 @@ public class TestRelay : MonoBehaviour
 {
     public TMP_InputField inputField;
 
+    [SerializeField] private GameObject networkCanvas;
+
     private async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -41,6 +43,8 @@ public class TestRelay : MonoBehaviour
 
             NetworkManager.Singleton.StartHost();
 
+            StartGame();
+
             FindObjectOfType<SimpleSpawn>().SpawnGift();
         } 
         catch (RelayServiceException e)
@@ -62,10 +66,17 @@ public class TestRelay : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
             NetworkManager.Singleton.StartClient();
+
+            StartGame();
         }
         catch (RelayServiceException e)
         {
             Debug.Log(e);
         }
+    }
+
+    private void StartGame()
+    {
+        networkCanvas.SetActive(false);
     }
 }

@@ -9,8 +9,8 @@ using Unity.Collections;
 public class GiftUse : NetworkBehaviour
 {
     public TextMeshProUGUI textOnGift;
-    public NetworkVariable<FixedString128Bytes> points = new NetworkVariable<FixedString128Bytes>(
-        "0", NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    public NetworkVariable<int> points = new NetworkVariable<int>(
+        0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
     public void Start()
     {
@@ -21,6 +21,7 @@ public class GiftUse : NetworkBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            other.transform.parent.GetComponent<PlayerScore>().UpdateScore(points.Value);
             DestroyObjectServerRPC();
         }
     }
