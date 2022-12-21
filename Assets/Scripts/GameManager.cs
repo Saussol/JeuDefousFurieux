@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     Vector3[] spawnPos = { new Vector3(66, 35, 33), new Vector3(63, 35, 33) };
 
+    public int[] playerScores = { 0, 0 };
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -34,6 +36,28 @@ public class GameManager : MonoBehaviour
         {
             go.transform.parent.transform.position = spawnPos[go.transform.parent.GetComponent<PlayerMovement1>().OwnerClientId];
             go.transform.parent.GetComponent<PlayerScore>().EnableHUD();
+        }
+
+        //TO DO Fix gift spawn
+        //FindObjectOfType<SimpleSpawn>().SpawnGift();
+    }
+
+    private void Update()
+    {
+        if(giftsInGame.Count <= 0)
+        {
+            if(playerScores[0] > playerScores[1])
+            {
+                Debug.Log("Winner is player 1 ");
+            }
+            else if(playerScores[0] < playerScores[1])
+            {
+                Debug.Log("Winner is player 2 ");
+            }
+            else
+            {
+                Debug.Log("Draw");
+            }
         }
     }
 
