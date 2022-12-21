@@ -21,6 +21,14 @@ public class PlayerScore : NetworkBehaviour
         //}
     }
 
+    public void EnableHUD()
+    {
+        if (IsOwner)
+        {
+            canvas.SetActive(true);
+        }
+    }
+
     public void UpdateScore(int scoreToAdd)
     {
         if (!IsOwner) return;
