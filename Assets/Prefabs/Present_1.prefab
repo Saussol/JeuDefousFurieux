@@ -305,8 +305,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a04f8bbbd264c46afbf98d18826f3996, type: 3}
-  - {fileID: 2100002, guid: a04f8bbbd264c46afbf98d18826f3996, type: 3}
+  - {fileID: 2100000, guid: 4f3ea2db833264749b039fbc1beaf81e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -341,7 +340,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textOnGift: {fileID: 5028714632643005835}
-  points: 0
+  points:
+    m_InternalValue: 0
+  gift: {fileID: 0}
 --- !u!54 &7170697755382806501
 Rigidbody:
   m_ObjectHideFlags: 0

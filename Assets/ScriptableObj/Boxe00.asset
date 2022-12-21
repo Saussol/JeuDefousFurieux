@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Boxe00
   m_EditorClassIdentifier: 
   points: 50
-  box: {fileID: 8396176663170021909, guid: 02f6cae68c1ba40c69523ff2fe4ead57, type: 3}
+  box: {fileID: 100000, guid: b62f486b795d4ab41b00dada7b852964, type: 3}
   boxScale: {x: 0.5, y: 0.5, z: 0.5}

@@ -18,8 +18,10 @@ public class GiftUse : NetworkBehaviour
     {
         if (gift != null)
         {
+            GetComponent<MeshFilter>().mesh = gift.box.GetComponent<MeshFilter>().sharedMesh;
             transform.localScale = gift.boxScale;
             points.Value = gift.points;
+
         }
     }
 
@@ -28,6 +30,7 @@ public class GiftUse : NetworkBehaviour
         if(gift != null)
         {
             transform.localScale = gift.boxScale;
+            GetComponent<MeshFilter>().mesh = gift.box.GetComponent<MeshFilter>().sharedMesh;
             GameManager.Instance.giftsInGame.Add(gameObject);
             points.Value = gift.points;
         }

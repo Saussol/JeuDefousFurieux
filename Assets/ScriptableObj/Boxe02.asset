@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Boxe02
   m_EditorClassIdentifier: 
   points: 20
-  box: {fileID: 8396176663170021909, guid: 02f6cae68c1ba40c69523ff2fe4ead57, type: 3}
+  box: {fileID: 141044, guid: 6869916e3b1b09e46bfc0ed02ccb919f, type: 3}
   boxScale: {x: 2, y: 2, z: 2}
