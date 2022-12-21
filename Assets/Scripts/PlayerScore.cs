@@ -36,7 +36,7 @@ public class PlayerScore : NetworkBehaviour
         score.Value += scoreToAdd;
         scoreText.text = "(" + score.Value.ToString() + ")";
 
-
+        UpdateScoreOnManagerServerRPC(score.Value);
 
         StartCoroutine(ScorePlusAnim());
         Debug.Log("add score");
