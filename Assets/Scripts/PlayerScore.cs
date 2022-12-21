@@ -14,11 +14,11 @@ public class PlayerScore : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!IsOwner)
-        {
+        //if (!IsOwner)
+        //{
             canvas.SetActive(false);
-            return;
-        }
+        //    return;
+        //}
     }
 
     public void UpdateScore(int scoreToAdd)

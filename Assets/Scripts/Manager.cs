@@ -18,6 +18,9 @@ public class Manager : MonoBehaviour
     private RelayHostData _hostData;
     private RelayJoinData _joinData;
     private string _lobbyId;
+
+    [SerializeField] private GameObject networkCanvas;
+
     // Start is called before the first frame update
     async void Start()
     {
@@ -115,8 +118,8 @@ public async void findMatch()
                 
             // Finally start the client
             NetworkManager.Singleton.StartClient();
-            
 
+            networkCanvas.SetActive(false);
 
         }
 
@@ -180,7 +183,9 @@ private async void CreateMatch(){
                 
             // Finally start host
             NetworkManager.Singleton.StartHost();
-            
+
+            networkCanvas.SetActive(false);
+
 
         }   catch(LobbyServiceException e)  {
             Debug.Log(e);
