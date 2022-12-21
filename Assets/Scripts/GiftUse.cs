@@ -43,14 +43,22 @@ public class GiftUse : NetworkBehaviour
         if (other.CompareTag("Player"))
         {
             other.transform.parent.GetComponent<PlayerScore>().UpdateScore(points.Value);
-            DestroyObjectServerRPC();
+            if(gift != null)
+            {
+                GameManager.Instance.giftsInGame.Remove(gameObject);
+                Destroy(gameObject);
+            }
+            else
+            {
+                DestroyObjectServerRPC();
+            }
         }
     }
 
     [ServerRpc(RequireOwnership = false)]
     void DestroyObjectServerRPC()
     {
-        Destroy(gameObject);
         GameManager.Instance.giftsInGame.Remove(gameObject);
+        Destroy(gameObject);
     }
 }

@@ -10,7 +10,7 @@ public class LaunchGame : NetworkBehaviour
 
     private void Update()
     {
-        if(NetworkManager.Singleton.ConnectedClients.Count >= 1 && IsHost)
+        if(IsHost && NetworkManager.Singleton.ConnectedClients.Count >= 1)
         {
             launchCanvas.SetActive(true);
         }
