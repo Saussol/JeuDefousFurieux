@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571343, b: 0.30692208, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -208,7 +208,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 509233488}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
         m_MethodName: findMatch
         m_Mode: 1
         m_Arguments:
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 509233486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4cfc96e9430a35c3aa9f36fd826777e, type: 3}
+  m_Script: {fileID: 11500000, guid: d5bba4514d9516e44885777fe241cde7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &544759456
@@ -379,6 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -463,6 +464,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &819219039
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,10 +546,10 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 819219040}
-    PlayerPrefab: {fileID: 1819970213061184402, guid: e259f0e0422d8362dbaa865cc2faa47d, type: 3}
+    PlayerPrefab: {fileID: 892881174849760480, guid: e9b8634cd22225140ab97273178897cc, type: 3}
     NetworkPrefabs:
     - Override: 0
-      Prefab: {fileID: 1819970213061184402, guid: e259f0e0422d8362dbaa865cc2faa47d, type: 3}
+      Prefab: {fileID: 892881174849760480, guid: e9b8634cd22225140ab97273178897cc, type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
