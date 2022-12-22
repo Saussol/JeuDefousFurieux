@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         }
 
         //TO DO Fix gift spawn
-        //FindObjectOfType<SimpleSpawn>().SpawnGift();
+        FindObjectOfType<SimpleSpawn>().SpawnGift();
     }
 
     private void Update()

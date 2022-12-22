@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 25
   box: {fileID: 100000, guid: 416e2b5a200888142a97c49c8bf68dc1, type: 3}
+  prefab: {fileID: 8396176663170021909, guid: 02f6cae68c1ba40c69523ff2fe4ead57, type: 3}
   boxScale: {x: 1, y: 1, z: 1}

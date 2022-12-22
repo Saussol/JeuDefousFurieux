@@ -7,5 +7,6 @@ public class BoxSO : ScriptableObject
 {
     public int points;
     public GameObject box;
+    public GameObject prefab;
     public Vector3 boxScale;
 }
