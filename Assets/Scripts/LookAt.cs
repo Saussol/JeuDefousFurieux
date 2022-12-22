@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using Cinemachine;
 
 public class LookAt : NetworkBehaviour
 {
     public GameObject theCam;
     void Start()
     {
-        FindCamServerRPC();
+        FindCamClientRPC();
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    private void FindCamServerRPC()
+    [ClientRpc]
+    private void FindCamClientRPC()
     {
-        theCam = NetworkManager.Singleton.ConnectedClients[NetworkManager.Singleton.LocalClientId].PlayerObject.GetComponent<PlayerMovement1>().cinemachineFree.gameObject;
+        theCam = FindObjectOfType<CinemachineFreeLook>().gameObject;
     }
 
     void Update()
@@ -27,7 +28,7 @@ public class LookAt : NetworkBehaviour
     {
         if(theCam == null)
         {
-            FindCamServerRPC();
+            FindCamClientRPC();
             return;
         }
         else
