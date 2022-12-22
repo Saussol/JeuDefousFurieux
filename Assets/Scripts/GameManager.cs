@@ -8,7 +8,7 @@ public class GameManager : NetworkBehaviour
     private static GameManager instance = null;
     public static GameManager Instance => instance;
 
-    Vector3[] spawnPos = { new Vector3(66, 35, 33), new Vector3(63, 35, 33) };
+    Vector3[] spawnPos = { new Vector3(99f, 23.5f, 55f), new Vector3(98.2f, 23.5f, 53.7f) };
 
     public int[] playerScores = { 0, 0 };
 
@@ -38,6 +38,8 @@ public class GameManager : NetworkBehaviour
             go.transform.parent.GetComponent<PlayerScore>().EnableHUD();
             go.transform.parent.GetComponent<PlayerMovement1>().canMoove = true;
             go.transform.parent.GetComponent<PlayerMovement1>().cinemachineFree.enabled = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         if (IsHost)
