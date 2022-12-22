@@ -37,14 +37,14 @@ public class EndGame : NetworkBehaviour
         {
             SendAllPlayerToMenuClientRPC();
         }
-        NetworkManager.Singleton.Shutdown();
         SceneManager.LoadScene("MainMenu");
+        NetworkManager.Singleton.Shutdown();
     }
 
     [ClientRpc]
     private void SendAllPlayerToMenuClientRPC()
     {
-        NetworkManager.Singleton.Shutdown();
         SceneManager.LoadScene("MainMenu");
+        NetworkManager.Singleton.Shutdown();
     }
 }
