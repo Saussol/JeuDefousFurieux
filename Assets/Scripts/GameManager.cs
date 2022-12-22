@@ -48,22 +48,35 @@ public class GameManager : NetworkBehaviour
         }
     }
 
+    bool displayScore;
+
     private void Update()
     {
-        if(giftsInGame.Count <= 0)
+        if(giftsInGame.Count <= 0 && !displayScore)
         {
-            if(playerScores[0] > playerScores[1])
-            {
-                Debug.Log("Winner is player 1 ");
-            }
-            else if(playerScores[0] < playerScores[1])
-            {
-                Debug.Log("Winner is player 2 ");
-            }
-            else
-            {
-                Debug.Log("Draw");
-            }
+            displayScore = true;
+            SetWinClientRPC();
+        }
+    }
+
+    [ClientRpc]
+    private void SetWinClientRPC()
+    {
+        if (playerScores[0] > playerScores[1])
+        {
+            NetworkManager.Singleton.ConnectedClients[0].PlayerObject.GetComponent<EndGame>().WinGame();
+            NetworkManager.Singleton.ConnectedClients[1].PlayerObject.GetComponent<EndGame>().WinGame();
+            Debug.Log("Winner is player 1 ");
+        }
+        else if (playerScores[0] < playerScores[1])
+        {
+            NetworkManager.Singleton.ConnectedClients[1].PlayerObject.GetComponent<EndGame>().WinGame();
+            NetworkManager.Singleton.ConnectedClients[0].PlayerObject.GetComponent<EndGame>().WinGame();
+        }
+        else
+        {
+            NetworkManager.Singleton.ConnectedClients[0].PlayerObject.GetComponent<EndGame>().WinGame();
+            NetworkManager.Singleton.ConnectedClients[1].PlayerObject.GetComponent<EndGame>().WinGame();
         }
     }
 

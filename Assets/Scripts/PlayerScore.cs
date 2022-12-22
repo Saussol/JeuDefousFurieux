@@ -23,6 +23,11 @@ public class PlayerScore : NetworkBehaviour
         //}
     }
 
+    public int GetScore()
+    {
+        return score.Value;
+    }
+
     public void EnableHUD()
     {
         if (IsOwner)
