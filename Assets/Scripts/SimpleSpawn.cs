@@ -42,7 +42,7 @@ public class SimpleSpawn : NetworkBehaviour
             go.transform.position = new Vector3(Random.Range(50, 70), 30, Random.Range(20, 40));
             go.transform.localScale = gifts[i].boxScale;
             go.GetComponent<GiftUse>().gift = gifts[i];
-            GameManager.Instance.giftsInGame.Add(go);
+            //GameManager.Instance.giftsInGame.Add(go);
 
             //Collider A for interaction
             //go.AddComponent<BoxCollider>().size = (gifts[i].boxScale * 2);
