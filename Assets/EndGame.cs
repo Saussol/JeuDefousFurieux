@@ -33,6 +33,16 @@ public class EndGame : NetworkBehaviour
 
     public void BackToMenu()
     {
+        if (IsHost)
+        {
+            SendAllPlayerToMenuClientRPC();
+        }
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    [ClientRpc]
+    private void SendAllPlayerToMenuClientRPC()
+    {
         SceneManager.LoadScene("MainMenu");
     }
 }
