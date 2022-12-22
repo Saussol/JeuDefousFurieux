@@ -10,7 +10,7 @@ public class SimpleSpawn : NetworkBehaviour
     private void Start()
     {
         //for (int i = 0; i < gifts.Length; i++)
-        //{          
+        //{
         //    GameObject go = Instantiate(gifts[i].box);
         //    go.GetComponent<NetworkObject>().Spawn();
         //    go.transform.position = new Vector3(Random.Range(-10.0f, 10.0f), 3f, Random.Range(-10.0f, 10.0f));
@@ -33,7 +33,8 @@ public class SimpleSpawn : NetworkBehaviour
         //}
     }
 
-    public void SpawnGift()
+    [ServerRpc(RequireOwnership = false)]
+    public void SpawnGiftServerRPC()
     {
         for (int i = 0; i < gifts.Length; i++)
         {

@@ -45,8 +45,8 @@ public class TestRelay : MonoBehaviour
 
             StartGame();
 
-            FindObjectOfType<SimpleSpawn>().SpawnGift();
-        } 
+            //FindObjectOfType<SimpleSpawn>().SpawnGift();
+        }
         catch (RelayServiceException e)
         {
             Debug.Log(e);
