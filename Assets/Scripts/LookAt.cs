@@ -13,7 +13,13 @@ public class LookAt : NetworkBehaviour
 
     void Update()
     {
-       transform.LookAt(theCam.transform);
+        UpdateRotationClientRPC();
+    }
+
+    [ClientRpc]
+    private void UpdateRotationClientRPC()
+    {
+        transform.LookAt(theCam.transform);
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
     }
 }
