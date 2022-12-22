@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4898d71bf8fe8af42b8398f219c1dba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theCam: {fileID: 0}
 --- !u!1 &5179671679366142174
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,9 +389,9 @@ MonoBehaviour:
   SyncPositionX: 1
   SyncPositionY: 1
   SyncPositionZ: 1
-  SyncRotAngleX: 0
+  SyncRotAngleX: 1
   SyncRotAngleY: 1
-  SyncRotAngleZ: 0
+  SyncRotAngleZ: 1
   SyncScaleX: 0
   SyncScaleY: 0
   SyncScaleZ: 0

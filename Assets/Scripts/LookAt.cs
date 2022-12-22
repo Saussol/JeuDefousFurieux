@@ -8,7 +8,13 @@ public class LookAt : NetworkBehaviour
     public GameObject theCam;
     void Start()
     {
-        theCam = NetworkManager.Singleton.ConnectedClients[NetworkManager.Singleton.LocalClientId].PlayerObject.transform.GetChild(2).gameObject; ;
+        FindCamClientRPC();
+    }
+
+    [ClientRpc]
+    private void FindCamClientRPC()
+    {
+        theCam = NetworkManager.Singleton.ConnectedClients[NetworkManager.Singleton.LocalClientId].PlayerObject.transform.GetChild(2).gameObject;
     }
 
     void Update()
