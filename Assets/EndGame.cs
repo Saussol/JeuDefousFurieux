@@ -11,7 +11,8 @@ public class EndGame : NetworkBehaviour
     [SerializeField] private TMP_Text winText, looseText;
     [SerializeField] private PlayerScore playerScore;
 
-    public void WinGame()
+    [ClientRpc]
+    public void WinGameClientRPC()
     {
         if (!IsOwner) return;
         winScreen.SetActive(true);
@@ -20,7 +21,8 @@ public class EndGame : NetworkBehaviour
         Cursor.visible = false;
     }
 
-    public void LooseGame()
+    [ClientRpc]
+    public void LooseGameClientRPC()
     {
         if (!IsOwner) return;
         looseScreen.SetActive(true);

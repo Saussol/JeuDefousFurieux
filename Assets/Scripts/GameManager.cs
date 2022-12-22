@@ -57,28 +57,21 @@ public class GameManager : NetworkBehaviour
         if(giftsInGame.Count <= 0 && !displayScore)
         {
             displayScore = true;
-            SetWinClientRPC();
+            SetWin();
         }
     }
 
-    [ClientRpc]
-    private void SetWinClientRPC()
+    private void SetWin()
     {
         if (playerScores[0] > playerScores[1])
         {
-            NetworkManager.Singleton.ConnectedClients[0].PlayerObject.GetComponent<EndGame>().WinGame();
-            NetworkManager.Singleton.ConnectedClients[1].PlayerObject.GetComponent<EndGame>().WinGame();
-            Debug.Log("Winner is player 1 ");
-        }
-        else if (playerScores[0] < playerScores[1])
-        {
-            NetworkManager.Singleton.ConnectedClients[1].PlayerObject.GetComponent<EndGame>().WinGame();
-            NetworkManager.Singleton.ConnectedClients[0].PlayerObject.GetComponent<EndGame>().WinGame();
+            NetworkManager.Singleton.ConnectedClients[0].PlayerObject.GetComponent<EndGame>().WinGameClientRPC();
+            NetworkManager.Singleton.ConnectedClients[1].PlayerObject.GetComponent<EndGame>().WinGameClientRPC();
         }
         else
         {
-            NetworkManager.Singleton.ConnectedClients[0].PlayerObject.GetComponent<EndGame>().WinGame();
-            NetworkManager.Singleton.ConnectedClients[1].PlayerObject.GetComponent<EndGame>().WinGame();
+            NetworkManager.Singleton.ConnectedClients[1].PlayerObject.GetComponent<EndGame>().WinGameClientRPC();
+            NetworkManager.Singleton.ConnectedClients[0].PlayerObject.GetComponent<EndGame>().WinGameClientRPC();
         }
     }
 
