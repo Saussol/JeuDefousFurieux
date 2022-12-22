@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
             go.transform.parent.GetComponent<PlayerMovement1>().cinemachineFree.enabled = true;
         }
 
-            FindObjectOfType<SimpleSpawn>().SpawnGiftServerRPC();
+            FindObjectOfType<SimpleSpawn>().SpawnGift();
 
     }
 

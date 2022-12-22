@@ -33,8 +33,7 @@ public class SimpleSpawn : NetworkBehaviour
         //}
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    public void SpawnGiftServerRPC()
+    public void SpawnGift()
     {
         for (int i = 0; i < gifts.Length; i++)
         {
