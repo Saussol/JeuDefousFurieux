@@ -11,6 +11,8 @@ public class PlayerScore : NetworkBehaviour
     [SerializeField] private GameObject scorePlus;
     NetworkVariable<int> score = new NetworkVariable<int>(0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
+
+    public AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class PlayerScore : NetworkBehaviour
 
     public void UpdateScore(int scoreToAdd)
     {
+        audio.Play();
         if (!IsOwner) return;
 
         score.Value += scoreToAdd;

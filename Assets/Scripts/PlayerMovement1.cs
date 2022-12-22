@@ -43,6 +43,7 @@ public class PlayerMovement1 : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        GetComponent<AudioSource>().Play();
         transform.position = spawnPos[(int)OwnerClientId];
         cinemachineFree.enabled = false;
     }

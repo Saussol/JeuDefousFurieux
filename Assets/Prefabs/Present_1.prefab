@@ -343,6 +343,7 @@ MonoBehaviour:
   points:
     m_InternalValue: 0
   gift: {fileID: 0}
+  audio: {fileID: 0}
 --- !u!54 &7170697755382806501
 Rigidbody:
   m_ObjectHideFlags: 0

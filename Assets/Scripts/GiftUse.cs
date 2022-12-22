@@ -13,6 +13,7 @@ public class GiftUse : NetworkBehaviour
         0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
     public BoxSO gift;
+    public AudioSource audio;
 
     private void OnValidate()
     {
