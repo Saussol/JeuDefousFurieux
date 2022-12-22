@@ -30,7 +30,10 @@ public class LookAt : NetworkBehaviour
             theCam = NetworkManager.Singleton.ConnectedClients[NetworkManager.Singleton.LocalClientId].PlayerObject.GetComponent<PlayerMovement1>().cinemachineFree.gameObject;
             return;
         }
-        transform.LookAt(theCam.transform);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
+        else
+        {
+            transform.LookAt(theCam.transform);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
+        }
     }
 }
