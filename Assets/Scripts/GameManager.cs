@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Unity.Netcode;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
     private static GameManager instance = null;
     public static GameManager Instance => instance;
@@ -40,8 +40,10 @@ public class GameManager : MonoBehaviour
             go.transform.parent.GetComponent<PlayerMovement1>().cinemachineFree.enabled = true;
         }
 
+        if (IsHost)
+        {
             FindObjectOfType<SimpleSpawn>().SpawnGift();
-
+        }
     }
 
     private void Update()
