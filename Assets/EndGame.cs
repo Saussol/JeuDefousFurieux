@@ -17,8 +17,8 @@ public class EndGame : NetworkBehaviour
         if (!IsOwner) return;
         winScreen.SetActive(true);
         winText.text = "Score : " + playerScore.GetScore().ToString();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     [ClientRpc]
@@ -27,8 +27,8 @@ public class EndGame : NetworkBehaviour
         if (!IsOwner) return;
         looseScreen.SetActive(true);
         looseText.text = "Score : " + playerScore.GetScore().ToString();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void BackToMenu()
