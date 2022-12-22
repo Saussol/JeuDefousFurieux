@@ -46,7 +46,12 @@ public class ChickenLaunchGame : NetworkBehaviour
 
     IEnumerator WaitPoule()
     {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
+        foreach (GameObject go in players)
+        {
+            go.transform.parent.transform.SetParent(gameObject.transform.parent.transform.parent);
+        }
         yield return new WaitForSeconds(1f);
         m_Animatorc.SetBool("Gocam", true); // lance cam
         yield return new WaitForSeconds(2.5f);
@@ -57,6 +62,12 @@ public class ChickenLaunchGame : NetworkBehaviour
         yield return new WaitForSeconds(1f);
         m_Animatorfondu.SetBool("LaunchFondu", true); // lance fondu
         yield return new WaitForSeconds(2f);
+
+        foreach (GameObject go in players)
+        {
+            go.transform.parent.transform.parent = null;
+        }
+
         // launch lobby
         if (IsHost)
         {
