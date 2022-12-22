@@ -44,7 +44,10 @@ public class EndGame : NetworkBehaviour
     [ClientRpc]
     private void SendAllPlayerToMenuClientRPC()
     {
-        SceneManager.LoadScene("MainMenu");
-        NetworkManager.Singleton.Shutdown();
+        if(OwnerClientId == 1)
+        {
+            SceneManager.LoadScene("MainMenu");
+            NetworkManager.Singleton.Shutdown();
+        }
     }
 }
