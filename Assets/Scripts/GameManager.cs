@@ -66,12 +66,12 @@ public class GameManager : NetworkBehaviour
         if (playerScores[0] > playerScores[1])
         {
             NetworkManager.Singleton.ConnectedClients[0].PlayerObject.GetComponent<EndGame>().WinGameClientRPC();
-            NetworkManager.Singleton.ConnectedClients[1].PlayerObject.GetComponent<EndGame>().WinGameClientRPC();
+            NetworkManager.Singleton.ConnectedClients[1].PlayerObject.GetComponent<EndGame>().LooseGameClientRPC();
         }
         else
         {
             NetworkManager.Singleton.ConnectedClients[1].PlayerObject.GetComponent<EndGame>().WinGameClientRPC();
-            NetworkManager.Singleton.ConnectedClients[0].PlayerObject.GetComponent<EndGame>().WinGameClientRPC();
+            NetworkManager.Singleton.ConnectedClients[0].PlayerObject.GetComponent<EndGame>().LooseGameClientRPC();
         }
     }
 
