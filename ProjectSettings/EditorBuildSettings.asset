@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MapJolie.unity
     guid: d2809ab9b90eea7419d8d90d4c505d35
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 955a41dbd78a403478aad0422d99dd51
   m_configObjects: {}

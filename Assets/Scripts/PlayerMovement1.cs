@@ -34,14 +34,17 @@ public class PlayerMovement1 : NetworkBehaviour
 
     Rigidbody rb;
 
+    public bool canMoove = false;
+
     [Header("Camera")]
     public CinemachineFreeLook cinemachineFree;
 
-    Vector3[] spawnPos = { new Vector3(2, 1.5f, 0), new Vector3(-2, 1.5f, 0) };
+    Vector3[] spawnPos = { new Vector3(63.5f, 24f, 34f), new Vector3(63.4f, 24f, 32.5f) };
 
     public override void OnNetworkSpawn()
     {
         transform.position = spawnPos[(int)OwnerClientId];
+        cinemachineFree.enabled = false;
     }
 
     private void Start()
@@ -54,7 +57,7 @@ public class PlayerMovement1 : NetworkBehaviour
 
     private void Update()
     {
-        if (!IsOwner) return;
+        if (!IsOwner || !canMoove) return;
 
         //ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);

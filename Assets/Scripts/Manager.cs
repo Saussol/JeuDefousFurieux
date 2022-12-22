@@ -19,7 +19,7 @@ public class Manager : MonoBehaviour
     private RelayJoinData _joinData;
     private string _lobbyId;
 
-    [SerializeField] private GameObject networkCanvas;
+    //[SerializeField] private GameObject networkCanvas;
 
     // Start is called before the first frame update
     async void Start()
@@ -30,7 +30,7 @@ public class Manager : MonoBehaviour
         SetupEvents();
 
 
-          
+
         // Unity Login
         await SignInAnonymouslyAsync();
     }
@@ -55,7 +55,7 @@ public class Manager : MonoBehaviour
             Debug.Log("Player signed out.");
         };
     }
-    
+
     async Task SignInAnonymouslyAsync()
     {
         try
@@ -90,9 +90,9 @@ public async void findMatch()
 
             // Retrieve the Relay code previously set in the create match
             string joinCode = l.Data["joinCode"].Value;
-                
+
             Debug.Log("Received code: " + joinCode);
-            
+
             JoinAllocation allocation = await Relay.Instance.JoinAllocationAsync(joinCode);
 
             // Create Object
@@ -109,17 +109,17 @@ public async void findMatch()
 
             // Set transport data
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(
-                _joinData.IPv4Address, 
-                _joinData.Port, 
-                _joinData.AllocationIDBytes, 
-                _joinData.Key, 
-                _joinData.ConnectionData, 
+                _joinData.IPv4Address,
+                _joinData.Port,
+                _joinData.AllocationIDBytes,
+                _joinData.Key,
+                _joinData.ConnectionData,
                 _joinData.HostConnectionData);
-                
+
             // Finally start the client
             NetworkManager.Singleton.StartClient();
 
-            networkCanvas.SetActive(false);
+            //networkCanvas.SetActive(false);
 
         }
 
@@ -127,7 +127,7 @@ public async void findMatch()
         {
               Debug.Log("not found : "+ ex);
               CreateMatch();
-            
+
         }
     }
 
@@ -175,16 +175,16 @@ private async void CreateMatch(){
 
             // Set Transports data
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(
-                _hostData.IPv4Address, 
-                _hostData.Port, 
-                _hostData.AllocationIDBytes, 
-                _hostData.Key, 
+                _hostData.IPv4Address,
+                _hostData.Port,
+                _hostData.AllocationIDBytes,
+                _hostData.Key,
                 _hostData.ConnectionData);
-                
+
             // Finally start host
             NetworkManager.Singleton.StartHost();
 
-            networkCanvas.SetActive(false);
+            //networkCanvas.SetActive(false);
 
 
         }   catch(LobbyServiceException e)  {
@@ -200,7 +200,7 @@ private async void CreateMatch(){
 
         while (true){
             Lobbies.Instance.SendHeartbeatPingAsync(Id);
-            yield return delay; 
+            yield return delay;
         }
     }
 
@@ -225,7 +225,7 @@ private async void CreateMatch(){
         public byte[] ConnectionData;
         public byte[] Key;
     }
-    
+
     /// <summary>
     /// RelayHostData represents the necessary informations
     /// for a Host to host a game on a Relay

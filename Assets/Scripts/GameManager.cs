@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
         {
             go.transform.parent.transform.position = spawnPos[go.transform.parent.GetComponent<PlayerMovement1>().OwnerClientId];
             go.transform.parent.GetComponent<PlayerScore>().EnableHUD();
+            go.transform.parent.GetComponent<PlayerMovement1>().canMoove = true;
+            go.transform.parent.GetComponent<PlayerMovement1>().cinemachineFree.enabled = true;
         }
 
         //TO DO Fix gift spawn
