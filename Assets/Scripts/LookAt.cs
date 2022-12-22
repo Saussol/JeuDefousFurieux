@@ -8,11 +8,11 @@ public class LookAt : NetworkBehaviour
     public GameObject theCam;
     void Start()
     {
-        FindCamClientRPC();
+        FindCamServerRPC();
     }
 
-    [ClientRpc]
-    private void FindCamClientRPC()
+    [ServerRpc(RequireOwnership = false)]
+    private void FindCamServerRPC()
     {
         theCam = NetworkManager.Singleton.ConnectedClients[NetworkManager.Singleton.LocalClientId].PlayerObject.GetComponent<PlayerMovement1>().cinemachineFree.gameObject;
     }
@@ -25,15 +25,15 @@ public class LookAt : NetworkBehaviour
     [ClientRpc]
     private void UpdateRotationClientRPC()
     {
-        if(theCam == null)
-        {
-            theCam = NetworkManager.Singleton.ConnectedClients[NetworkManager.Singleton.LocalClientId].PlayerObject.GetComponent<PlayerMovement1>().cinemachineFree.gameObject;
-            return;
-        }
-        else
-        {
+        //if(theCam == null)
+        //{
+        //    theCam = NetworkManager.Singleton.ConnectedClients[NetworkManager.Singleton.LocalClientId].PlayerObject.GetComponent<PlayerMovement1>().cinemachineFree.gameObject;
+        //    return;
+        //}
+        //else
+        //{
             transform.LookAt(theCam.transform);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
-        }
+        //}
     }
 }
