@@ -9535,6 +9535,8 @@ GameObject:
   - component: {fileID: 1433858700}
   - component: {fileID: 1433858699}
   - component: {fileID: 1433858698}
+  - component: {fileID: 1433858702}
+  - component: {fileID: 1433858701}
   m_Layer: 0
   m_Name: rpgpp_lt_wagon_01 (1)
   m_TagString: Untagged
@@ -9627,6 +9629,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433858696}
   m_Mesh: {fileID: 4300000, guid: f34a4e9b86005de4da2625205407868e, type: 3}
+--- !u!65 &1433858701
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433858696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19988263, y: 1.22312, z: 2.0403993}
+  m_Center: {x: -1.0227896, y: 0.68396884, z: -0.09906104}
+--- !u!65 &1433858702
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433858696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.109191, y: 0.1593225, z: 2.0403993}
+  m_Center: {x: 0.9318694, y: 0.14752996, z: -0.09906057}
 --- !u!1001 &1434102639
 PrefabInstance:
   m_ObjectHideFlags: 0
