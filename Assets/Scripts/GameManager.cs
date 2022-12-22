@@ -52,6 +52,8 @@ public class GameManager : NetworkBehaviour
 
     private void Update()
     {
+        if (!IsHost) return;
+
         if(giftsInGame.Count <= 0 && !displayScore)
         {
             displayScore = true;
