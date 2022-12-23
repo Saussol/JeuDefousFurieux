@@ -16,6 +16,7 @@ public class GiftUse : NetworkBehaviour
         0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
     public BoxSO gift;
+    private BoxSO giftSpawned;
     public AudioSource audio;
 
     private void OnValidate()
@@ -38,21 +39,23 @@ public class GiftUse : NetworkBehaviour
             GameManager.Instance.giftsInGame.Add(gameObject);
             points.Value = gift.points;
         }
+        else
+        {
+            StartCoroutine(StartGift());
+        }
 
         textOnGift.text = points.Value.ToString();
-
-        StartCoroutine(StartGift());
     }
 
     IEnumerator StartGift()
     {
         yield return new WaitForSeconds(.5f);
 
-        gift = FindObjectOfType<SimpleSpawn>().gifts[giftNum.Value];
-        transform.localScale = gift.boxScale;
-        GetComponent<MeshFilter>().mesh = gift.box.GetComponent<MeshFilter>().sharedMesh;
+        giftSpawned = FindObjectOfType<SimpleSpawn>().gifts[giftNum.Value];
+        transform.localScale = giftSpawned.boxScale;
+        GetComponent<MeshFilter>().mesh = giftSpawned.box.GetComponent<MeshFilter>().sharedMesh;
         GameManager.Instance.giftsInGame.Add(gameObject);
-        points.Value = gift.points;
+        points.Value = giftSpawned.points;
 
         textOnGift.text = points.Value.ToString();
     }
