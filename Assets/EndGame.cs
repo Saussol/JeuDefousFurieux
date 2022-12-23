@@ -85,6 +85,10 @@ public class EndGame : NetworkBehaviour
     public void OnClientDisconnect()
     {
         Debug.Log("Client disconnect 01");
-        ChangeClietSceneClientRpc();
+        if (IsHost) { return; }
+        Debug.Log("Client disconnect 02");
+        NetworkManager.Singleton.Shutdown(true);
+        Destroy(NetworkManager.Singleton.gameObject);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }
