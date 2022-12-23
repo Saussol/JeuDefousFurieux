@@ -185,6 +185,7 @@ private async void CreateMatch(){
             NetworkManager.Singleton.StartHost();
 
             //networkCanvas.SetActive(false);
+            FindObjectOfType<CheatMode>().stopKonami = true;
 
 
         }   catch(LobbyServiceException e)  {
