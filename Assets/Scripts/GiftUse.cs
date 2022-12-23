@@ -31,6 +31,13 @@ public class GiftUse : NetworkBehaviour
 
     public void Start()
     {
+        StartCoroutine(StartGift());
+    }
+
+    IEnumerator StartGift()
+    {
+        yield return new WaitForSeconds(.5f);
+
         gift = FindObjectOfType<SimpleSpawn>().gifts[giftNum.Value];
 
         if (gift != null)
