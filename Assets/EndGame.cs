@@ -45,21 +45,27 @@ public class EndGame : NetworkBehaviour
 
     public void OnServerDisconnect()
     {
-        if (!IsServer) { return; }
-        List<NetworkClient> connectedPlayers = (List<NetworkClient>)NetworkManager.Singleton.ConnectedClientsList;
+        if (!IsServer) return;
+        else
+        {
+            StartCoroutine(OnserverDisconnectWait());
+        }
+    }
 
+    IEnumerator OnserverDisconnectWait()
+    {
+
+        Debug.Log("Disconnect all client");
+        List<NetworkClient> connectedPlayers = (List<NetworkClient>)NetworkManager.Singleton.ConnectedClientsList;
 
         for (int i = 0; i < connectedPlayers.Count; i++)
         {
-            NetworkClient player = connectedPlayers[i];
-            if (player.ClientId == 0) { continue; }
-            else
-            {
-                ChangeClietSceneClientRpc();
-            }
+            ChangeClietSceneClientRpc();
         }
 
+        yield return new WaitForSeconds(.5f);
 
+        Debug.Log("Disconnect host");
         NetworkManager.Singleton.Shutdown(true);
         Destroy(NetworkManager.Singleton.gameObject);
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
@@ -77,7 +83,7 @@ public class EndGame : NetworkBehaviour
 
     public void OnClientDisconnect()
     {
-        if (!IsServer) { return; }
+        if (IsServer) { return; }
         else
         {
             ChangeClietSceneClientRpc();
