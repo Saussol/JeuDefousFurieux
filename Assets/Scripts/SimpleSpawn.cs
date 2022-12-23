@@ -39,7 +39,7 @@ public class SimpleSpawn : NetworkBehaviour
         {
             GameObject go = Instantiate(gifts[i].prefab);
 
-            go.transform.position = new Vector3(Random.Range(30, 90), 30, Random.Range(20, 40));
+            go.transform.position = new Vector3(Random.Range(25, 105), 30, Random.Range(0, 80));
             go.transform.localScale = gifts[i].boxScale;
             go.GetComponent<GiftUse>().gift = gifts[i];
             //GameManager.Instance.giftsInGame.Add(go);

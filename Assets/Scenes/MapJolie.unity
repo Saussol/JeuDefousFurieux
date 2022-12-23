@@ -12757,6 +12757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScores: 0000000000000000
+  simpleSpawn: {fileID: 948487489}
   giftsInGame: []
 --- !u!4 &1738052165
 Transform:
@@ -13554,8 +13555,8 @@ Transform:
   - {fileID: 1762089263}
   - {fileID: 1234290707}
   - {fileID: 1600624451}
-  - {fileID: 491241009}
   - {fileID: 694419564}
+  - {fileID: 491241009}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
