@@ -83,11 +83,6 @@ public class EndGame : NetworkBehaviour
 
     public void OnClientDisconnect()
     {
-        if (IsServer) { return; }
-        else
-        {
-            ChangeClietSceneClientRpc();
-        }
-
+        ChangeClietSceneClientRpc();
     }
 }
