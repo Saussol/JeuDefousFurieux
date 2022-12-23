@@ -31,6 +31,16 @@ public class GiftUse : NetworkBehaviour
 
     public void Start()
     {
+        if (gift != null)
+        {
+            transform.localScale = gift.boxScale;
+            GetComponent<MeshFilter>().mesh = gift.box.GetComponent<MeshFilter>().sharedMesh;
+            GameManager.Instance.giftsInGame.Add(gameObject);
+            points.Value = gift.points;
+        }
+
+        textOnGift.text = points.Value.ToString();
+
         StartCoroutine(StartGift());
     }
 
@@ -39,14 +49,10 @@ public class GiftUse : NetworkBehaviour
         yield return new WaitForSeconds(.5f);
 
         gift = FindObjectOfType<SimpleSpawn>().gifts[giftNum.Value];
-
-        if (gift != null)
-        {
-            transform.localScale = gift.boxScale;
-            GetComponent<MeshFilter>().mesh = gift.box.GetComponent<MeshFilter>().sharedMesh;
-            GameManager.Instance.giftsInGame.Add(gameObject);
-            points.Value = gift.points;
-        }
+        transform.localScale = gift.boxScale;
+        GetComponent<MeshFilter>().mesh = gift.box.GetComponent<MeshFilter>().sharedMesh;
+        GameManager.Instance.giftsInGame.Add(gameObject);
+        points.Value = gift.points;
 
         textOnGift.text = points.Value.ToString();
     }
