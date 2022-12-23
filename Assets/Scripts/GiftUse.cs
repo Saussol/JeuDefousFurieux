@@ -31,16 +31,14 @@ public class GiftUse : NetworkBehaviour
 
     public void Start()
     {
-        if(gift != null)
+        gift = FindObjectOfType<SimpleSpawn>().gifts[giftNum.Value];
+
+        if (gift != null)
         {
             transform.localScale = gift.boxScale;
             GetComponent<MeshFilter>().mesh = gift.box.GetComponent<MeshFilter>().sharedMesh;
             GameManager.Instance.giftsInGame.Add(gameObject);
             points.Value = gift.points;
-        }
-        else
-        {
-            GetComponent<MeshFilter>().mesh = FindObjectOfType<SimpleSpawn>().gifts[giftNum.Value].box.GetComponent<MeshFilter>().sharedMesh;
         }
 
         textOnGift.text = points.Value.ToString();
