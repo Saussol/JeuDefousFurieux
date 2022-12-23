@@ -55,6 +55,7 @@ public class SimpleSpawn : NetworkBehaviour
             go.GetComponent<Rigidbody>().drag = 10f;*/
 
             go.GetComponent<GiftUse>().points.Value = gifts[i].points;
+            go.GetComponent<GiftUse>().giftNum.Value = i;
 
             go.GetComponent<NetworkObject>().Spawn();
         }

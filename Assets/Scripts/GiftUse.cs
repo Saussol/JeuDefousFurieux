@@ -12,6 +12,9 @@ public class GiftUse : NetworkBehaviour
     public NetworkVariable<int> points = new NetworkVariable<int>(
         0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
+    public NetworkVariable<int> giftNum = new NetworkVariable<int>(
+        0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+
     public BoxSO gift;
     public AudioSource audio;
 
@@ -34,6 +37,10 @@ public class GiftUse : NetworkBehaviour
             GetComponent<MeshFilter>().mesh = gift.box.GetComponent<MeshFilter>().sharedMesh;
             GameManager.Instance.giftsInGame.Add(gameObject);
             points.Value = gift.points;
+        }
+        else
+        {
+            GetComponent<MeshFilter>().mesh = FindObjectOfType<SimpleSpawn>().gifts[giftNum.Value].box.GetComponent<MeshFilter>().sharedMesh;
         }
 
         textOnGift.text = points.Value.ToString();
