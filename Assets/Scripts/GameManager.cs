@@ -12,6 +12,9 @@ public class GameManager : NetworkBehaviour
 
     public int[] playerScores = { 0, 0 };
 
+    public SimpleSpawn simpleSpawn;
+    private bool redyForSpawn = true;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -58,6 +61,12 @@ public class GameManager : NetworkBehaviour
         {
             displayScore = true;
             SetWin();
+        }
+
+        if (giftsInGame.Count <= 5 & redyForSpawn)
+        {
+            redyForSpawn = false;
+            simpleSpawn.SpawnGift();
         }
     }
 
