@@ -35,16 +35,53 @@ public class EndGame : NetworkBehaviour
     {
         if (IsHost)
         {
-            SendAllPlayerToMenuClientRPC();
+            OnServerDisconnect();
         }
-        SceneManager.LoadScene("MainMenu");
-        NetworkManager.Singleton.Shutdown();
+        else
+        {
+            OnClientDisconnect();
+        }
+    }
+
+    public void OnServerDisconnect()
+    {
+        if (!IsServer) { return; }
+        List<NetworkClient> connectedPlayers = (List<NetworkClient>)NetworkManager.Singleton.ConnectedClientsList;
+
+
+        for (int i = 0; i < connectedPlayers.Count; i++)
+        {
+            NetworkClient player = connectedPlayers[i];
+            if (player.ClientId == 0) { continue; }
+            else
+            {
+                ChangeClietSceneClientRpc();
+            }
+        }
+
+
+        NetworkManager.Singleton.Shutdown(true);
+        Destroy(NetworkManager.Singleton.gameObject);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     [ClientRpc]
-    private void SendAllPlayerToMenuClientRPC()
+    private void ChangeClietSceneClientRpc()
     {
-            SceneManager.LoadScene("MainMenu");
-            NetworkManager.Singleton.Shutdown();
+        if (IsHost) { return; }
+
+        NetworkManager.Singleton.Shutdown(true);
+        Destroy(NetworkManager.Singleton.gameObject);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
+    public void OnClientDisconnect()
+    {
+        if (!IsServer) { return; }
+        else
+        {
+            ChangeClietSceneClientRpc();
+        }
+
     }
 }
